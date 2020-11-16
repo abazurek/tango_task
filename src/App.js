@@ -21,8 +21,6 @@ function App() {
         },
         []);
 
-    console.log(characters)
-
   return (
     <div className="App">
       <Main characters={characters}/>

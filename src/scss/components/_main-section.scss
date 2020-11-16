@@ -1,5 +1,18 @@
 .main-section{
   font-size: 1.2em;
+  form{
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-evenly;
+    font-family: $font-base;
+    input,select{
+      font-size: 1em;
+      padding: 0.4em 1em;
+      &:focus{
+        outline: none;
+      }
+    }
+  }
   table{
     margin-top: 2em;
     th{
