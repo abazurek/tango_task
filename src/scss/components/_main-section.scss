@@ -1,6 +1,10 @@
 .main-section{
   font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   form{
+    width: 100%;
     margin-top: 2em;
     display: flex;
     justify-content: space-evenly;
@@ -14,11 +18,12 @@
     }
   }
   table{
-    margin-top: 2em;
+    margin: 2em auto;
     th{
       font-weight: bolder;
     }
     td, th{
+      max-width: 400px;
       border: 1px solid $color-border-base;
       padding: 1em;
       text-align: center;
@@ -29,6 +34,26 @@
         li{
           padding: 0.2em;
         }
+      }
+    }
+  }
+  .buttons-box{
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: center;
+    button{
+      margin: 0 0.5em;
+      background: none;
+      border: 1px solid $color-border-base;
+      font-family: $font-base;
+      color: $color-font-base;
+      font-size: 1em;
+      padding: 0.5em 1em;
+      &:hover{
+        cursor: pointer;
+      }
+      &:focus{
+        outline: none;
       }
     }
   }

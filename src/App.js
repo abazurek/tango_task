@@ -6,9 +6,12 @@ import Main from "./components/Main";
 function App() {
 
     const [characters, setCharacters]=useState('');
+    const [page, setPage]=useState(1);
+    const [pageSize, setPageSize]=useState(10)
+
 
     function getApiCharacters(){
-        fetch('https://anapioficeandfire.com/api/characters')
+        fetch(`https://www.anapioficeandfire.com/api/characters?page=${page}&pageSize=${pageSize}`)
             .then(resp => resp.json())
             .then(data => setCharacters(data))
             .catch(err => {
@@ -16,14 +19,15 @@ function App() {
             });
     }
 
-    useEffect(function (){
+    useEffect(function ()
+        {
         getApiCharacters();
-        },
-        []);
+        }, [page]);
+
 
   return (
     <div className="App">
-      <Main characters={characters}/>
+      <Main characters={characters} page={page} setPage={setPage} setPageSize={setPageSize}/>
     </div>
   );
 }
