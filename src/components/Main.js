@@ -1,18 +1,27 @@
 import React, {useState} from 'react';
+import { useHistory } from 'react-router-dom'
+
 import Pagination from "./Pagination";
 import Form from "./Form";
 import Table from "./Table";
 import DropdownMenu from "./Dropdown";
 
 
-export default function Main({characters,page, setPage,pageSize, setPageSize}) {
+export default function Main({characters,page, setPage,pageSize, setPageSize, setItemDetails}) {
+
+    let history = useHistory();
 
     const [gender, setGender] = useState('');
     const [name, setName] = useState('');
 
+
+    const goToBooksDetails=(item)=>{
+        setItemDetails(item)
+        history.push("/booksDetails")
+    }
+
     function singleRow(item) {
-        return (
-            <tr key={characters.indexOf(item)}>
+        return (<tr  key={characters.indexOf(item)} onClick={()=>goToBooksDetails(item)}>
                 {item.name && item.aliases[0] !== "" ? <td>{item.name}, {item.aliases}</td> :
                     <td>{item.name} {item.aliases}</td>}
                 {item.gender ? <td>{item.gender}</td> : <td>Unknown</td>}
@@ -22,7 +31,6 @@ export default function Main({characters,page, setPage,pageSize, setPageSize}) {
                 </td>
                 {item.tvSeries.includes("") ? <td>{item.tvSeries.length - 1}</td> : <td>{item.tvSeries.length}</td>}
             </tr>)
-
     }
 
 
@@ -39,13 +47,12 @@ export default function Main({characters,page, setPage,pageSize, setPageSize}) {
         }
     }
 
-    return (
-        <main className='container main-section'>
+
+    return (<main className='container main-section'>
             <Pagination page={page} setPage={setPage}/>
             <Form setGender={setGender} setName={setName}/>
             <Table showTable={showTable}/>
             <DropdownMenu pageSize={pageSize} setPageSize={setPageSize}/>
-        </main>
-    )
+        </main>)
 
 }
