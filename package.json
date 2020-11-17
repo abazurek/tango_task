@@ -2,7 +2,7 @@
   "name": "tango_task",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://abazurek.github.io/tango_task",
+  "homepage": "https://abazurek.github.io/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.1.2",

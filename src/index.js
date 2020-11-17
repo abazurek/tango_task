@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'reset-css';
 import './scss/main.scss';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,4 +12,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-reportWebVitals();
+// reportWebVitals();
