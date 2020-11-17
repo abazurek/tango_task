@@ -22,12 +22,12 @@ function App() {
     useEffect(function ()
         {
         getApiCharacters();
-        }, [page]);
+        }, [page, pageSize]);
 
 
   return (
     <div className="App">
-      <Main characters={characters} page={page} setPage={setPage} setPageSize={setPageSize}/>
+      <Main characters={characters} page={page} setPage={setPage} pageSize={pageSize} setPageSize={setPageSize}/>
     </div>
   );
 }

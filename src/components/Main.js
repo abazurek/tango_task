@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import Pagination from "./Pagination";
 import Form from "./Form";
 import Table from "./Table";
+import DropdownMenu from "./Dropdown";
 
-export default function Main({characters,page, setPage, setPageSize}) {
+
+export default function Main({characters,page, setPage,pageSize, setPageSize}) {
 
     const [gender, setGender] = useState('');
     const [name, setName] = useState('');
@@ -42,6 +44,8 @@ export default function Main({characters,page, setPage, setPageSize}) {
             <Pagination page={page} setPage={setPage}/>
             <Form setGender={setGender} setName={setName}/>
             <Table showTable={showTable}/>
+            <DropdownMenu pageSize={pageSize} setPageSize={setPageSize}/>
         </main>
     )
+
 }
