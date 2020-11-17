@@ -1,6 +1,10 @@
 import React,{useState,useEffect} from 'react';
-import Main from "./components/Main";
+import {BrowserRouter as Router} from "react-router-dom";
+import {Route, Switch} from 'react-router'
 
+
+import Main from "./components/Main";
+import BooksDetails from "./components/BooksDetails";
 
 
 function App() {
@@ -8,6 +12,7 @@ function App() {
     const [characters, setCharacters]=useState('');
     const [page, setPage]=useState(1);
     const [pageSize, setPageSize]=useState(10)
+    const [itemDetails, setItemDetails]=useState('');
 
 
     function getApiCharacters(){
@@ -19,16 +24,26 @@ function App() {
             });
     }
 
+
     useEffect(function ()
         {
         getApiCharacters();
+
         }, [page, pageSize]);
 
 
   return (
-    <div className="App">
-      <Main characters={characters} page={page} setPage={setPage} pageSize={pageSize} setPageSize={setPageSize}/>
-    </div>
+    <Router>
+        <Switch>
+            <Route exact path='/'>
+                <Main characters={characters} page={page} setPage={setPage} pageSize={pageSize} setPageSize={setPageSize} setItemDetails={setItemDetails}/>
+            </Route>
+            <Route path="/booksDetails">
+                <BooksDetails itemDetails={itemDetails}/>
+            </Route>
+        </Switch>
+
+    </Router>
   );
 }
 
