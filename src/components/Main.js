@@ -21,12 +21,12 @@ export default function Main({characters,page, setPage,pageSize, setPageSize, se
     }
 
     function singleRow(item) {
-        return (<tr  key={characters.indexOf(item)} onClick={()=>goToBooksDetails(item)}>
+        return (<tr  key={characters.indexOf(item)} >
                 {item.name && item.aliases[0] !== "" ? <td>{item.name}, {item.aliases}</td> :
                     <td>{item.name} {item.aliases}</td>}
                 {item.gender ? <td>{item.gender}</td> : <td>Unknown</td>}
                 {item.culture ? <td>{item.culture}</td> : <td>Unknown</td>}
-                <td>
+                <td className='books' onClick={()=>goToBooksDetails(item)}>
                     <ul>{item.books.map(elem => <li key={elem}>{elem.substr(-1, 1)}</li>)}</ul>
                 </td>
                 {item.tvSeries.includes("") ? <td>{item.tvSeries.length - 1}</td> : <td>{item.tvSeries.length}</td>}
