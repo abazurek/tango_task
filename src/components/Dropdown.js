@@ -22,6 +22,7 @@ export default function DropdownMenu({pageSize, setPageSize}) {
 
     return (
         <Dropdown
+            placeholder="Number of results"
             options={options}
             onChange={onChange}
             resetValue={''}
